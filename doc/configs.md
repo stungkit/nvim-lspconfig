@@ -23,6 +23,7 @@ Nvim by running `:help lspconfig-all`.
 - [ballerina](#ballerina)
 - [basedpyright](#basedpyright)
 - [bashls](#bashls)
+- [basics_ls](#basics_ls)
 - [bazelrc_lsp](#bazelrc_lsp)
 - [beancount](#beancount)
 - [bicep](#bicep)
@@ -155,6 +156,7 @@ Nvim by running `:help lspconfig-all`.
 - [lelwel_ls](#lelwel_ls)
 - [lemminx](#lemminx)
 - [lexical](#lexical)
+- [lsp_ai](#lsp_ai)
 - [ltex](#ltex)
 - [lua_ls](#lua_ls)
 - [luau_lsp](#luau_lsp)
@@ -1153,6 +1155,51 @@ require'lspconfig'.bashls.setup{}
   ```
 
 
+## basics_ls
+
+https://github.com/antonk52/basics-language-server/
+
+Buffer, path, and snippet completion
+
+```sh
+npm install -g basics-language-server
+```
+
+
+
+**Snippet to enable the language server:**
+```lua
+require'lspconfig'.basics_ls.setup{}
+```
+
+
+**Default values:**
+  - `cmd` : 
+  ```lua
+  { "basics-language-server" }
+  ```
+  - `settings` : 
+  ```lua
+  {
+    buffer = {
+      enable = true,
+      minCompletionLength = 4
+    },
+    path = {
+      enable = true
+    },
+    snippet = {
+      enable = false,
+      sources = {}
+    }
+  }
+  ```
+  - `single_file_support` : 
+  ```lua
+  true
+  ```
+
+
 ## bazelrc_lsp
 
 https://github.com/salesforce-misc/bazelrc-lsp
@@ -1929,7 +1976,7 @@ require'lspconfig'.circom-lsp.setup{}
 
 https://clangd.llvm.org/installation.html
 
-- **NOTE:** Clang >= 11 is recommended! See [#23](https://github.com/neovim/nvim-lsp/issues/23).
+- **NOTE:** Clang >= 11 is recommended! See [#23](https://github.com/neovim/nvim-lspconfig/issues/23).
 - If `compile_commands.json` lives in a build directory, you should
   symlink it to the root of your source tree.
   ```
@@ -6622,6 +6669,40 @@ require'lspconfig'.lexical.setup{}
   - `root_dir` : 
   ```lua
   see source file
+  ```
+  - `single_file_support` : 
+  ```lua
+  true
+  ```
+
+
+## lsp_ai
+
+
+
+**Snippet to enable the language server:**
+```lua
+require'lspconfig'.lsp_ai.setup{}
+```
+
+
+**Default values:**
+  - `cmd` : 
+  ```lua
+  { "lsp-ai" }
+  ```
+  - `filetypes` : 
+  ```lua
+  {}
+  ```
+  - `init_options` : 
+  ```lua
+  {
+    memory = {
+      file_store = vim.empty_dict()
+    },
+    models = vim.empty_dict()
+  }
   ```
   - `single_file_support` : 
   ```lua
